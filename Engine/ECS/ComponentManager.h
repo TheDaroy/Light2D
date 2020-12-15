@@ -14,28 +14,28 @@ class ComponentManager
 {
 public:
 	template<typename T>
-	void AddNewComponentType()
+	 void AddNewComponentType()
 	{
 		componentArray[GetComponentID<T>()] = std::make_shared<ComponentList<T>>();
-
-	
+		
+		
 	}
 
 	template<typename T>
-	void AddComponentToEntity(Entity entity, T& component)
+	 void AddComponentToEntity(Entity entity, T& component)
 	{		
 		GetComponentList<T>()->AddComponent(entity, component);
 	}
 
 	template<typename T>
-	T& GetComponent(Entity entity)
+	 T& GetComponent(Entity entity)
 	{
 		 return GetComponentList<T>()->GetComponent(entity);
 	
 	}
 
 	template<typename T>
-	void RemoveComponentFromEntity(Entity entity)
+	 void RemoveComponentFromEntity(Entity entity)
 	{
 		
 		GetComponentList<T>()->RemoveComponent(entity);
@@ -43,14 +43,14 @@ public:
 	}
 
 	template<typename T>
-	ComponentID GetComponentID()
+	 ComponentID GetComponentID()
 	{
 		const static ComponentID componentID = nrOfComponentTypes++;
 	
 		return componentID;
 	}
 	template<typename T>
-	size_t GetAmountOfActiveComponents()
+	 size_t GetAmountOfActiveComponents()
 	{
 		return GetComponentList<T>()->GetAmountOfActiveComponents();
 	}
@@ -62,7 +62,7 @@ private:
 	 
 
 	template<typename T>
-	std::shared_ptr<ComponentList<T>> GetComponentList()
+	 std::shared_ptr<ComponentList<T>> GetComponentList()
 	{
 
 		return std::static_pointer_cast<ComponentList<T>>(componentArray[GetComponentID<T>()]);

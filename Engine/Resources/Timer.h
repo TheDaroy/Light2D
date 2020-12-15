@@ -18,7 +18,7 @@ namespace LightEngine::Resource
 		void Update()
 		{
 			stopTime = std::chrono::high_resolution_clock::now();
-			deltaTime = std::chrono::duration<float, std::chrono::milliseconds::period>(stopTime - startTime).count();
+			deltaTime = std::chrono::duration<float, std::chrono::seconds::period>(stopTime - startTime).count();
 		}
 		float DeltaTime()
 		{

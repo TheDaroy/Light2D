@@ -11,17 +11,17 @@ class ComponentList : public ComponentListHead
 {
 public:
 	
-	void AddComponent(Entity entity, T& component)
+	 void AddComponent(Entity entity, T& component)
 	{
 		componentArray[entity] = component;
 	}
 
-	T& GetComponent(Entity entity)
+	 T& GetComponent(Entity entity)
 	{
 		//std::cout<<entity<<std::endl;
 		return componentArray[entity];
 	}
-	size_t GetAmountOfActiveComponents()
+	 size_t GetAmountOfActiveComponents()
 	{
 		return currentActiveComponents;
 	}

@@ -8,6 +8,7 @@ void GameManager::Setup()
 }
 void GameManager::UpdateLoop()
 {
+	
 	while (!quit)
 	{
 		Timer->Update();
@@ -19,14 +20,13 @@ void GameManager::UpdateLoop()
 			}
 		}
 		Timer->Reset();		
-	    windowResource->ClearBackBuffer();
-		Input->Update();
-
+		SuperEarly();
 		EarlyUpdate();
 		Update();
 		LateUpdate();
+		
 
-		windowResource->Render();
+		Render();
 
 	}
 }
@@ -38,6 +38,10 @@ void GameManager::EarlyUpdate()
 
 void GameManager::Update()
 {
+	
+	//windowResource->DrawLine({200,200}, { 1000,1000 },{255,0,0,255});
+	//windowResource->DrawSquare({300,300}, 100, { 0,0,255,255 });
+	//windowResource->DrawFilledSquare({ 500,500 }, 200, { 0,0,255,255 });
 	Systems::Collision::Update(EntityManager.get(), ComponentManager.get(),collisionLayerManager->GetCollisionDataArray());
 }
 void GameManager::LateUpdate()

@@ -21,7 +21,7 @@ public:
 
 	}
 	
-	Entity GetNewEntity()
+	 Entity GetNewEntity()
 	{
 		Entity newEntity = availableEntites.back();
 		availableEntites.pop_back();
@@ -32,39 +32,39 @@ public:
 		}
 		return newEntity;
 	}
-	void DestroyEntity(Entity entity)
+	 void DestroyEntity(Entity entity)
 	{
 		availableEntites.push_back(entity);
 		componentsOnEntityArray[entity].reset();
 		currentEntityAmount--;
 	}
-	void AddComponentToEntity(ComponentID compID, Entity entity)
+	 void AddComponentToEntity(ComponentID compID, Entity entity)
 	{		
 		componentsOnEntityArray[entity].set(compID);
 
 	}
-	void RemoveComponentFromEntity(ComponentID compID, Entity entity)
+	 void RemoveComponentFromEntity(ComponentID compID, Entity entity)
 	{
 		componentsOnEntityArray[entity].set(compID,false);
 	}
-	ComponentSet GetEntityComponentSet(Entity entity)
+	 ComponentSet GetEntityComponentSet(Entity entity)
 	{
 		//std::cout << entity << std::endl;
 		return componentsOnEntityArray[entity];
 	}
-	std::uint32_t GetCurrentEntitieAmount()
+	 std::uint32_t GetCurrentEntitieAmount()
 	{
 		return currentEntityAmount;
 	}
 	
-	Entity GetEntityWithHighestValue()
+	 Entity GetEntityWithHighestValue()
 	{
 		return highestActiveEntity;
 	}
 private:
 
 	std::unique_ptr<ComponentSet[]> componentsOnEntityArray = std::make_unique<ComponentSet[]>(MAX_ENTITIES);
-	//std::queue<Entity> availableEntites;
+	
 	std::vector<Entity> availableEntites;
 	std::uint32_t currentEntityAmount = 0;
 	Entity highestActiveEntity = 0;
