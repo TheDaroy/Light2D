@@ -3,21 +3,19 @@
 
 class GameManager : public LightEngine::EngineCore
 {
-public:
-   
+public: 
 	void Setup();
-
 
 	void UpdateLoop();
 	void EarlyUpdate();
 	void Update();
 	void LateUpdate();
 
-
-	private:
+private:
+   void CreateStuff();
 	SDL_Event mEvents;
 	bool quit = false;
+
+	
 };
-
-
 

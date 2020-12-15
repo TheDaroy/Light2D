@@ -12,16 +12,19 @@ namespace Systems::Graphics
 	{
 		auto view = LightEngine::ECS::View<GraphicsComponent, TransformComponent>(compMgr, entMgr);
 
-
+		
 		for (auto entity : view)
 		{
+			
 			GraphicsComponent& comp = compMgr->GetComponent<GraphicsComponent>(entity);
 			TransformComponent& transformComp = compMgr->GetComponent<TransformComponent>(entity);
 			comp.rect.x = (int)(transformComp.position.x - 200 * 0.5f);
 			comp.rect.y = (int)(transformComp.position.y - 200 * 0.5f);
+			
 			winResource->DrawTexture(comp.texture, NULL, &comp.rect, 0.f, SDL_FLIP_NONE);
 
 		}
+		
 	}
 }
 

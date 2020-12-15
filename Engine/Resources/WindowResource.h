@@ -48,6 +48,7 @@ public:
 
 	void DrawTexture(SDL_Texture* tex, SDL_Rect* clip, SDL_Rect* rect, float angle, SDL_RendererFlip flip)
 	{
+		
 		SDL_RenderCopyEx(renderer, tex, NULL, rect, angle, NULL, flip);
 	}
 
@@ -105,7 +106,7 @@ public:
 
 
 	const char* windowName = "Light2D";
-	const std::string graphicsFolderPath = "Assets/Graphics/";
+	const std::string graphicsFolderPath = "Light2D/Assets/Graphics/";
 private:
 
 	const std::uint32_t SCREEN_WIDTH = 1280;

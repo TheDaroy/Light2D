@@ -4,6 +4,7 @@
 
 void GameManager::Setup()
 {
+	windowResource->LoadNewTexture("SquareWhite.png","Box");
 	
 }
 void GameManager::UpdateLoop()
@@ -38,7 +39,6 @@ void GameManager::EarlyUpdate()
 
 void GameManager::Update()
 {
-	
 	
 	Systems::Collision::Update(EntityManager.get(), ComponentManager.get(),collisionLayerManager->GetCollisionDataArray());
 }

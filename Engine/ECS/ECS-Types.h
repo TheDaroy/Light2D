@@ -3,7 +3,7 @@
 #include <bitset>
 
 using Entity = std::uint32_t;
-const Entity MAX_ENTITIES = 10000;
+const Entity MAX_ENTITIES = 1000000;
 
 
 using SystemID = std::uint16_t;

@@ -12,7 +12,6 @@
 #include "CollisionSettings.h"
 #include "Components/Components.h"
 #include "Shapes.h"
-#include <iostream>
 namespace LightEngine
 {
 	class EngineCore
