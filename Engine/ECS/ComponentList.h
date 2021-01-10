@@ -7,7 +7,7 @@ namespace LightEngine::ECS
 class ComponentListHead{};
 
 template<typename T>
-class ComponentList : public ComponentListHead
+class ComponentArray : public ComponentListHead
 {
 public:
 	

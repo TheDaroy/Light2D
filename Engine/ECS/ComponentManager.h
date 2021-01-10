@@ -16,7 +16,7 @@ public:
 	template<typename T>
 	 void AddNewComponentType()
 	{
-		componentArray[GetComponentID<T>()] = std::make_shared<ComponentList<T>>();
+		componentArray[GetComponentID<T>()] = std::make_shared<ComponentArray<T>>();
 		
 		
 	}
@@ -32,14 +32,6 @@ public:
 	{
 		 return GetComponentList<T>()->GetComponent(entity);
 	
-	}
-
-	template<typename T>
-	 void RemoveComponentFromEntity(Entity entity)
-	{
-		
-		GetComponentList<T>()->RemoveComponent(entity);
-
 	}
 
 	template<typename T>
@@ -62,10 +54,10 @@ private:
 	 
 
 	template<typename T>
-	 std::shared_ptr<ComponentList<T>> GetComponentList()
+	 std::shared_ptr<ComponentArray<T>> GetComponentList()
 	{
 
-		return std::static_pointer_cast<ComponentList<T>>(componentArray[GetComponentID<T>()]);
+		return std::static_pointer_cast<ComponentArray<T>>(componentArray[GetComponentID<T>()]);
 	}
 
 };
